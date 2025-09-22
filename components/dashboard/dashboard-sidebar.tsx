@@ -12,10 +12,11 @@ import {
   Wallet,
   Plus,
   TrendingUp,
+  Link as LinkIcon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
+import NextLink from "next/link"
 
 interface DashboardSidebarProps {
   open: boolean
@@ -29,7 +30,7 @@ export default function DashboardSidebar({ open }: DashboardSidebarProps) {
     { icon: Wallet, label: "Balances", active: false },
     { icon: Users, label: "Customers", active: false },
     { icon: Shield, label: "Security", active: false },
-    { icon: Link, label: "Integrations", active: false },
+    { icon: LinkIcon, label: "Integrations", active: false },
     { icon: FileText, label: "Reports", active: false },
     { icon: Settings, label: "Settings", active: false },
   ]
@@ -60,7 +61,7 @@ export default function DashboardSidebar({ open }: DashboardSidebarProps) {
               transition={{ delay: 0.1 + index * 0.05 }}
             >
               {item.label === "Security" ? (
-                <Link href="/security">
+                <NextLink href="/security">
                   <button
                     className={cn(
                       "flex items-center w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
@@ -70,9 +71,9 @@ export default function DashboardSidebar({ open }: DashboardSidebarProps) {
                     <Shield className="h-5 w-5 mr-3" />
                     Security
                   </button>
-                </Link>
+                </NextLink>
               ) : item.label === "Overview" ? (
-                <Link href="/dashboard">
+                <NextLink href="/dashboard">
                   <button
                     className={cn(
                       "flex items-center w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
@@ -84,7 +85,7 @@ export default function DashboardSidebar({ open }: DashboardSidebarProps) {
                     <LayoutDashboard className="h-5 w-5 mr-3" />
                     Overview
                   </button>
-                </Link>
+                </NextLink>
               ) : (
                 <button
                   className={cn(
